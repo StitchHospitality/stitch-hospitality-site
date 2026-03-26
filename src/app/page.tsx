@@ -6,17 +6,26 @@ import HowItWorks from "@/components/HowItWorks";
 import Results from "@/components/Results";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { client } from "@/sanity/lib/client";
+import { TESTIMONIALS_QUERY, SERVICES_QUERY } from "@/sanity/lib/queries";
 
-export default function Home() {
+export const revalidate = 60; // ISR: revalidate every 60 seconds
+
+export default async function Home() {
+  const [testimonials, services] = await Promise.all([
+    client.fetch(TESTIMONIALS_QUERY).catch(() => []),
+    client.fetch(SERVICES_QUERY).catch(() => []),
+  ]);
+
   return (
     <>
       <Nav />
       <main>
         <Hero />
         <Problem />
-        <Services />
+        <Services sanityServices={services} />
         <HowItWorks />
-        <Results />
+        <Results sanityTestimonials={testimonials} />
         <CTA />
       </main>
       <Footer />
