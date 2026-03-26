@@ -1,0 +1,123 @@
+const services = [
+  {
+    title: "Inquiry & RFP Triage",
+    description:
+      "Automatically parse inbound RFPs, extract key details, score lead quality, and route to the right team member — all before your sales manager finishes their morning coffee.",
+    tags: ["Email parsing", "Lead scoring", "Auto-routing"],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+      </svg>
+    ),
+  },
+  {
+    title: "Proposal Generation",
+    description:
+      "Pull live rates, room blocks, and package details from your PMS to auto-populate branded proposals in minutes. Send a polished PDF before the client finishes reading your reply.",
+    tags: ["PMS integration", "Auto-populate", "PDF generation"],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+      </svg>
+    ),
+  },
+  {
+    title: "CRM Data Entry",
+    description:
+      "Every lead, follow-up, and booked event flows automatically into your CRM — correctly formatted, properly tagged, and without a single manual keystroke from your team.",
+    tags: ["Salesforce", "HubSpot", "Delphi / Amadeus"],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+      </svg>
+    ),
+  },
+  {
+    title: "Follow-Up Sequences",
+    description:
+      "Timed, personalized follow-up emails triggered by deal stage — not by someone remembering to send them. Increase conversion without adding headcount.",
+    tags: ["Drip sequences", "Stage-based triggers", "Personalization"],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Reporting & Analytics",
+    description:
+      "Automated weekly pipeline reports, conversion dashboards, and revenue forecasts delivered to your inbox — no spreadsheet maintenance required.",
+    tags: ["Pipeline reports", "Revenue forecasting", "Slack / email delivery"],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Contract & BEO Workflows",
+    description:
+      "Auto-generate contracts and Banquet Event Orders from confirmed bookings. Trigger internal approvals, get signatures, and archive everything — automatically.",
+    tags: ["DocuSign integration", "Auto-BEO generation", "Approval routing"],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+      </svg>
+    ),
+  },
+];
+
+export default function Services() {
+  return (
+    <section id="services" className="py-28 bg-[#fafaf7]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#ff6464]" />
+              <span className="text-xs font-medium tracking-[0.18em] uppercase text-[#8b9190]">
+                What We Automate
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-[#071f1b]">
+              Every repetitive task your team shouldn&apos;t be doing manually
+            </h2>
+          </div>
+          <p className="text-[#071f1b]/60 font-light leading-relaxed max-w-xs lg:text-right">
+            Built on n8n — the open-source workflow platform — so you own the
+            automation and it grows with your operation.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="group p-8 bg-white rounded-2xl border border-[#e5e3db] hover:border-[#ff6464]/30 hover:shadow-lg hover:shadow-[#ff6464]/5 transition-all duration-300"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#fafaf7] border border-[#e5e3db] flex items-center justify-center mb-6 text-[#071f1b] group-hover:bg-[#ff6464] group-hover:border-[#ff6464] group-hover:text-white transition-all duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-xl text-[#071f1b] mb-3 leading-snug">
+                {service.title}
+              </h3>
+              <p className="text-sm text-[#071f1b]/60 leading-relaxed font-light mb-6">
+                {service.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {service.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs font-medium px-3 py-1 rounded-full bg-[#f2f1ec] text-[#071f1b]/60"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
