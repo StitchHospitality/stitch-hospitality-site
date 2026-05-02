@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import Results from "@/components/Results";
 import CTA from "@/components/CTA";
+import IntakeForm from "@/components/IntakeForm";
 import Footer from "@/components/Footer";
 import { client } from "@/sanity/lib/client";
 import { TESTIMONIALS_QUERY, SERVICES_QUERY } from "@/sanity/lib/queries";
@@ -27,6 +28,7 @@ export default async function Home() {
         <HowItWorks />
         <Results sanityTestimonials={testimonials} />
         <CTA />
+        <IntakeForm />
       </main>
       <Footer />
     </>

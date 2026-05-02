@@ -61,14 +61,6 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+16503804871"
-                  className="text-sm text-white/50 hover:text-white transition-colors font-light"
-                >
-                  +1 (650) 380-4871
-                </a>
-              </li>
-              <li>
-                <a
                   href="mailto:hello@stitchhospitality.com"
                   className="text-sm text-white/50 hover:text-white transition-colors font-light"
                 >
@@ -77,10 +69,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="#intake-form"
                   className="inline-flex items-center gap-1.5 text-sm text-[#ff6464] hover:text-[#ff8080] transition-colors font-medium mt-2"
                 >
-                  Book a free audit
+                  Let&apos;s Build Your Automation
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

@@ -49,16 +49,10 @@ export default function Nav() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="tel:+16503804871"
-            className="text-sm text-[#071f1b]/60 hover:text-[#071f1b] transition-colors"
-          >
-            +1 (650) 380-4871
-          </a>
-          <a
-            href="#contact"
+            href="#intake-form"
             className="inline-flex items-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#ff6464]/25"
           >
-            Book a Call
+            Let&apos;s Build Your Automation
           </a>
         </div>
 
@@ -98,11 +92,11 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="#contact"
+            href="#intake-form"
             onClick={() => setMenuOpen(false)}
             className="mt-2 inline-flex justify-center bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-5 py-3 rounded-full transition-colors"
           >
-            Book a Call
+            Let&apos;s Build Your Automation
           </a>
         </div>
       )}

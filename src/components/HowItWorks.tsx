@@ -91,10 +91,10 @@ export default function HowItWorks() {
             </p>
           </div>
           <a
-            href="#contact"
+            href="#intake-form"
             className="shrink-0 inline-flex items-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-7 py-4 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-[#ff6464]/30 hover:-translate-y-0.5"
           >
-            Start Your Audit
+            Let&apos;s Build Your Automation
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
