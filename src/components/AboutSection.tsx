@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section className="py-28 bg-[#fafaf7]" aria-labelledby="about-heading">
+    <section id="about" className="py-28 bg-[#fafaf7]" aria-labelledby="about-heading">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 mb-6">

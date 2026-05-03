@@ -4,6 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const NAV_LINKS = [
+  { label: "Services", href: "#services" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Results", href: "#results" },
+  { label: "About", href: "#about" },
+];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,38 +42,12 @@ export default function Nav() {
           />
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          {[
-            { label: "Services", href: "#services" },
-            { label: "How It Works", href: "#how-it-works" },
-            { label: "Results", href: "#results" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-[#071f1b]/70 hover:text-[#071f1b] transition-colors tracking-wide"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#intake-form"
-            className="inline-flex items-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#ff6464]/25"
-          >
-            Let&apos;s Build Your Automation
-          </a>
-        </div>
-
-        {/* Mobile hamburger */}
+        {/* Hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           <span
             className={`block w-5 h-0.5 bg-[#071f1b] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
@@ -80,30 +61,19 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Dropdown menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#fafaf7] border-t border-[#e5e3db] px-6 py-6 flex flex-col gap-4">
-          {[
-            { label: "Services", href: "#services" },
-            { label: "How It Works", href: "#how-it-works" },
-            { label: "Results", href: "#results" },
-          ].map((item) => (
+        <div className="bg-[#fafaf7] border-t border-[#e5e3db] px-6 py-6 flex flex-col gap-1">
+          {NAV_LINKS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="text-base font-medium text-[#071f1b] hover:text-[#ff6464] transition-colors py-1"
+              className="text-base font-medium text-[#071f1b] hover:text-[#ff6464] transition-colors py-2"
             >
               {item.label}
             </Link>
           ))}
-          <a
-            href="#intake-form"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 inline-flex justify-center bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-5 py-3 rounded-full transition-colors"
-          >
-            Let&apos;s Build Your Automation
-          </a>
         </div>
       )}
     </header>
