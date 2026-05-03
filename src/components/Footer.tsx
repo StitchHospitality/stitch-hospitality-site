@@ -36,7 +36,7 @@ export default function Footer() {
               {[
                 "Inquiry & RFP Triage",
                 "Proposal Generation",
-                "CRM Data Entry",
+                "Lead Capture & Logging",
                 "Follow-Up Sequences",
                 "Reporting & Analytics",
                 "Contract & BEO Workflows",

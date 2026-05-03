@@ -3,6 +3,7 @@ type SanityService = {
   title: string;
   description: string;
   tags?: string[];
+  comingSoon?: boolean;
 };
 
 const FALLBACK_SERVICES = [
@@ -20,7 +21,7 @@ const FALLBACK_SERVICES = [
   {
     title: "Proposal Generation",
     description:
-      "Pull live rates, room blocks, and package details from your PMS to auto-populate branded proposals in minutes. Send a polished PDF before the client finishes reading your reply.",
+      "Pull rates, room blocks, and package details from your property's Brand DNA profile to auto-populate branded proposals in minutes. Send a polished document before the client finishes reading your reply.",
     tags: ["PMS integration", "Auto-populate", "PDF generation"],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -29,10 +30,10 @@ const FALLBACK_SERVICES = [
     ),
   },
   {
-    title: "CRM Data Entry",
+    title: "Lead Capture & Logging",
     description:
-      "Every lead, follow-up, and booked event flows automatically into your CRM — correctly formatted, properly tagged, and without a single manual keystroke from your team.",
-    tags: ["Salesforce", "HubSpot", "Delphi / Amadeus"],
+      "Every inquiry is automatically parsed, scored, and logged — full contact details, event specs, dates, and budget captured without anyone touching a keyboard. CRM sync with Salesforce and Delphi / Amadeus available as a Phase 2 add-on.",
+    tags: ["Auto-parsing", "Lead scoring", "Instant logging"],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
@@ -44,6 +45,7 @@ const FALLBACK_SERVICES = [
     description:
       "Timed, personalized follow-up emails triggered by deal stage — not by someone remembering to send them. Increase conversion without adding headcount.",
     tags: ["Drip sequences", "Stage-based triggers", "Personalization"],
+    comingSoon: true,
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -55,6 +57,7 @@ const FALLBACK_SERVICES = [
     description:
       "Automated weekly pipeline reports, conversion dashboards, and revenue forecasts delivered to your inbox — no spreadsheet maintenance required.",
     tags: ["Pipeline reports", "Revenue forecasting", "Slack / email delivery"],
+    comingSoon: true,
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
@@ -66,6 +69,7 @@ const FALLBACK_SERVICES = [
     description:
       "Auto-generate contracts and Banquet Event Orders from confirmed bookings. Trigger internal approvals, get signatures, and archive everything — automatically.",
     tags: ["DocuSign integration", "Auto-BEO generation", "Approval routing"],
+    comingSoon: true,
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
@@ -93,6 +97,7 @@ export default function Services({
         title: s.title,
         description: s.description,
         tags: s.tags ?? [],
+        comingSoon: s.comingSoon ?? false,
         icon: DEFAULT_ICON,
       }))
     : FALLBACK_SERVICES;
@@ -127,9 +132,16 @@ export default function Services({
               <div className="w-11 h-11 rounded-xl bg-[#fafaf7] border border-[#e5e3db] flex items-center justify-center mb-6 text-[#071f1b] group-hover:bg-[#ff6464] group-hover:border-[#ff6464] group-hover:text-white transition-all duration-300">
                 {service.icon}
               </div>
-              <h3 className="text-xl text-[#071f1b] mb-3 leading-snug">
-                {service.title}
-              </h3>
+              <div className="flex items-center gap-2 mb-3">
+                <h3 className="text-xl text-[#071f1b] leading-snug">
+                  {service.title}
+                </h3>
+                {service.comingSoon && (
+                  <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-[#f2f1ec] text-[#071f1b]/40 border border-[#e5e3db] shrink-0">
+                    Coming Soon
+                  </span>
+                )}
+              </div>
               <p className="text-sm text-[#071f1b]/60 leading-relaxed font-light mb-6">
                 {service.description}
               </p>

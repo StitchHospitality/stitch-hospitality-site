@@ -15,7 +15,7 @@ const STATS = [
   {
     value: "< 5 min",
     label: "RFP triage time",
-    description: "From email arrival to qualified lead in your CRM — fully automated.",
+    description: "From email arrival to scored, logged lead — fully automated.",
   },
   {
     value: "3 weeks",
@@ -25,7 +25,7 @@ const STATS = [
   {
     value: "0 hrs",
     label: "Manual data entry",
-    description: "Once automated, your CRM stays current without anyone touching a keyboard.",
+    description: "Once automated, every inquiry is captured and logged without anyone touching a keyboard.",
   },
 ];
 
