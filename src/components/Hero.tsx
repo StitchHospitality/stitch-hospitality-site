@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#fafaf7] overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-start bg-[#fafaf7] overflow-hidden pt-20">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-[#ff6464]/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-[#071f1b]/3 blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid lg:grid-cols-2 gap-16 items-center w-full">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-12 pb-24 grid lg:grid-cols-2 gap-16 items-center w-full">
         {/* Left: Text */}
         <div className="flex flex-col gap-8 max-w-xl">
           <div className="inline-flex items-center gap-2 self-start">

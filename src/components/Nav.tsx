@@ -38,7 +38,7 @@ export default function Nav() {
             width={120}
             height={62}
             priority
-            className="h-8 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+            className="h-12 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-200"
           />
         </Link>
 
