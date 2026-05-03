@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,10 +24,15 @@ export default function Nav() {
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-[13px] font-heading tracking-[0.22em] uppercase text-[#071f1b] group-hover:text-[#ff6464] transition-colors">
-            Stitch Hospitality
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/logo.png"
+            alt="Stitch Hospitality"
+            width={120}
+            height={62}
+            priority
+            className="h-8 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+          />
         </Link>
 
         {/* Desktop links */}
