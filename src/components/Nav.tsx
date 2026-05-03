@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Results", href: "/#results" },
   { label: "About", href: "/#about" },
   { label: "Pricing", href: "/pricing" },
+  { label: "What to Expect", href: "/what-to-expect" },
 ];
 
 export default function Nav() {

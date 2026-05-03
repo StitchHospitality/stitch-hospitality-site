@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#071f1b] text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <p className="font-heading text-[13px] tracking-[0.22em] uppercase text-white mb-4">
@@ -47,6 +47,28 @@ export default function Footer() {
                     className="text-sm text-white/50 hover:text-white transition-colors font-light"
                   >
                     {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <p className="text-xs font-medium tracking-[0.15em] uppercase text-white/30 mb-4">
+              Resources
+            </p>
+            <ul className="space-y-3">
+              {[
+                { label: "What to Expect", href: "/what-to-expect" },
+                { label: "Pricing", href: "/pricing" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-sm text-white/50 hover:text-white transition-colors font-light"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}
