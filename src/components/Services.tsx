@@ -114,12 +114,11 @@ export default function Services({
               </span>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[#071f1b]">
-              Every repetitive task your team shouldn&apos;t be doing manually
+              Custom n8n Workflows for Hotels
             </h2>
           </div>
           <p className="text-[#071f1b]/60 font-light leading-relaxed max-w-xs lg:text-right">
-            Built on n8n — the open-source workflow platform — so you own the
-            automation and it grows with your operation.
+            You own the automation and it grows with your operation.
           </p>
         </div>
 

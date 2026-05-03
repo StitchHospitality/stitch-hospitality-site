@@ -61,10 +61,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@stitchhospitality.com"
+                  href="mailto:chris@stitchhospitality.com"
                   className="text-sm text-white/50 hover:text-white transition-colors font-light"
                 >
-                  hello@stitchhospitality.com
+                  chris@stitchhospitality.com
                 </a>
               </li>
               <li>
@@ -87,16 +87,7 @@ export default function Footer() {
             &copy; {year} Stitch Hospitality. All rights reserved.
           </p>
           <p className="text-white/20 text-xs font-light">
-            Built on{" "}
-            <a
-              href="https://n8n.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white/40 transition-colors"
-            >
-              n8n
-            </a>
-            . You own everything we build.
+            You own everything we build.
           </p>
         </div>
       </div>

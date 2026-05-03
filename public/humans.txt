@@ -1,0 +1,11 @@
+/* TEAM */
+Founder: Chris Suarez
+Site: https://www.stitchhospitality.com
+
+/* SITE */
+Name: Stitch Hospitality
+Focus: Custom n8n automation workflows for hotel sales departments
+Serving: Independent and boutique hotels in California
+
+/* TECHNOLOGY */
+Next.js, React, TypeScript, Tailwind CSS, Sanity CMS, n8n, Vercel

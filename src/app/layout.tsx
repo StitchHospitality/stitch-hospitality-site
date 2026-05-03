@@ -17,15 +17,38 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Stitch Hospitality | Custom Automations for Hotel Sales Teams",
+  metadataBase: new URL("https://www.stitchhospitality.com"),
+  title: {
+    template: "%s | Stitch Hospitality",
+    default: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+  },
   description:
-    "Stitch Hospitality transforms hotel sales with custom n8n automations, freeing your team from repetitive tasks so they can build relationships and close more deals.",
+    "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+  authors: [{ name: "Chris Suarez", url: "https://www.stitchhospitality.com" }],
+  creator: "Chris Suarez",
+  publisher: "Stitch Hospitality",
   openGraph: {
-    title: "Stitch Hospitality | Custom Automations for Hotel Sales Teams",
-    description:
-      "Give your hotel sales team their time back with custom workflow automations.",
-    siteName: "Stitch Hospitality",
     type: "website",
+    siteName: "Stitch Hospitality",
+    title: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+    description:
+      "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+    url: "https://www.stitchhospitality.com",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+    description:
+      "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 

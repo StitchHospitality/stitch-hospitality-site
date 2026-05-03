@@ -24,7 +24,7 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl lg:text-6xl xl:text-[68px] text-[#071f1b] leading-[1.08]">
-            Custom Automations That Give Hotel Sales Teams Their Time Back
+            Hotel Sales Automation for RFPs, Proposals, and Follow-Up
           </h1>
 
           <p className="text-lg text-[#071f1b]/65 leading-relaxed font-light">
