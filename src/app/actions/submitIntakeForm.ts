@@ -27,31 +27,31 @@ export async function submitIntakeForm(
     return { status: 'error', message: 'Please enter a valid email address.' }
   }
 
+  // Save to Sanity best-effort — don't let a missing token block the email
+  writeClient.create({
+    _type: 'intakeLead',
+    fullName,
+    hotelName,
+    email,
+    message: message || undefined,
+    submittedAt: new Date().toISOString(),
+  }).catch(() => {})
+
   try {
-    await Promise.all([
-      writeClient.create({
-        _type: 'intakeLead',
-        fullName,
-        hotelName,
-        email,
-        message: message || undefined,
-        submittedAt: new Date().toISOString(),
-      }),
-      resend.emails.send({
-        from: 'Stitch Hospitality <noreply@stitchhospitality.com>',
-        to: 'chris@stitchhospitality.com',
-        subject: `New Inquiry: ${hotelName} — ${fullName}`,
-        html: `
-          <h2>New Intake Form Submission</h2>
-          <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:600px;">
-            <tr><td><strong>Name</strong></td><td>${fullName}</td></tr>
-            <tr><td><strong>Hotel</strong></td><td>${hotelName}</td></tr>
-            <tr><td><strong>Email</strong></td><td>${email}</td></tr>
-            <tr><td><strong>Message</strong></td><td>${message || '—'}</td></tr>
-          </table>
-        `,
-      }),
-    ])
+    await resend.emails.send({
+      from: 'Stitch Hospitality <noreply@stitchhospitality.com>',
+      to: 'chris@stitchhospitality.com',
+      subject: `New Inquiry: ${hotelName} — ${fullName}`,
+      html: `
+        <h2>New Intake Form Submission</h2>
+        <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:600px;">
+          <tr><td><strong>Name</strong></td><td>${fullName}</td></tr>
+          <tr><td><strong>Hotel</strong></td><td>${hotelName}</td></tr>
+          <tr><td><strong>Email</strong></td><td>${email}</td></tr>
+          <tr><td><strong>Message</strong></td><td>${message || '—'}</td></tr>
+        </table>
+      `,
+    })
 
     return { status: 'success', message: "Thanks! We'll be in touch within one business day." }
   } catch {
