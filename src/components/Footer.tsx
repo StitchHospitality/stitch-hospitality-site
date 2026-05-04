@@ -39,8 +39,6 @@ export default function Footer() {
                 { label: "Hotel RFP Automation", href: "/hotel-rfp-automation" },
                 { label: "Event Inquiry Parsing", href: "/event-inquiry-parsing-for-hotels" },
                 { label: "Hotel Proposal Automation", href: "/hotel-proposal-automation" },
-                { label: "Follow-Up Sequences", href: "/#services" },
-                { label: "Reporting & Analytics", href: "/#services" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
