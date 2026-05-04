@@ -92,7 +92,6 @@ export default function Services({
 
   const activeServices = displayServices.filter((s) => !s.comingSoon);
   const comingSoonServices = displayServices.filter((s) => s.comingSoon);
-  const [flagship, ...otherActive] = activeServices;
 
   return (
     <section id="services" className="py-28 bg-[#fafaf7]">
@@ -114,71 +113,35 @@ export default function Services({
           </p>
         </div>
 
-        {/* Flagship workflow — full-width card */}
-        {flagship && (
-          <div className="group mb-6 p-8 lg:p-10 bg-white rounded-2xl border-2 border-[#ff6464]/20 hover:border-[#ff6464]/40 hover:shadow-xl hover:shadow-[#ff6464]/8 transition-all duration-300">
-            <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-11 h-11 rounded-xl bg-[#ff6464] border border-[#ff6464] flex items-center justify-center text-white shrink-0">
-                    {flagship.icon}
-                  </div>
-                  <span className="text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-[#ff6464]/10 text-[#ff6464] border border-[#ff6464]/20">
-                    Flagship Workflow
+        {/* Active services — three columns */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {activeServices.map((service) => (
+            <div
+              key={service.title}
+              className="group p-8 bg-white rounded-2xl border border-[#e5e3db] hover:border-[#ff6464]/30 hover:shadow-lg hover:shadow-[#ff6464]/5 transition-all duration-300"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#fafaf7] border border-[#e5e3db] flex items-center justify-center mb-6 text-[#071f1b] group-hover:bg-[#ff6464] group-hover:border-[#ff6464] group-hover:text-white transition-all duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-xl text-[#071f1b] mb-3 leading-snug">
+                {service.title}
+              </h3>
+              <p className="text-sm text-[#071f1b]/60 leading-relaxed font-light mb-6">
+                {service.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {service.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs font-medium px-3 py-1 rounded-full bg-[#f2f1ec] text-[#071f1b]/60"
+                  >
+                    {tag}
                   </span>
-                </div>
-                <h3 className="text-2xl lg:text-3xl text-[#071f1b] mb-4 leading-snug">
-                  {flagship.title}
-                </h3>
-                <p className="text-sm text-[#071f1b]/60 leading-relaxed font-light mb-6 max-w-2xl">
-                  {flagship.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {flagship.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium px-3 py-1 rounded-full bg-[#f2f1ec] text-[#071f1b]/60"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
-          </div>
-        )}
-
-        {/* Other active services */}
-        {otherActive.length > 0 && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {otherActive.map((service) => (
-              <div
-                key={service.title}
-                className="group p-8 bg-white rounded-2xl border border-[#e5e3db] hover:border-[#ff6464]/30 hover:shadow-lg hover:shadow-[#ff6464]/5 transition-all duration-300"
-              >
-                <div className="w-11 h-11 rounded-xl bg-[#fafaf7] border border-[#e5e3db] flex items-center justify-center mb-6 text-[#071f1b] group-hover:bg-[#ff6464] group-hover:border-[#ff6464] group-hover:text-white transition-all duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl text-[#071f1b] mb-3 leading-snug">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-[#071f1b]/60 leading-relaxed font-light mb-6">
-                  {service.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium px-3 py-1 rounded-full bg-[#f2f1ec] text-[#071f1b]/60"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
 
         {/* Coming soon services */}
         {comingSoonServices.length > 0 && (
