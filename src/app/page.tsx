@@ -7,7 +7,6 @@ import HowItWorks from "@/components/HowItWorks";
 import Results from "@/components/Results";
 import CTA from "@/components/CTA";
 import IntakeForm from "@/components/IntakeForm";
-import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import { client } from "@/sanity/lib/client";
 import { SERVICES_QUERY } from "@/sanity/lib/queries";
@@ -137,7 +136,6 @@ export default async function Home() {
         <Problem />
         <Services sanityServices={services} />
         <HowItWorks />
-        <AboutSection />
         <Results />
         <CTA />
         <IntakeForm />
