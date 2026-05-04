@@ -1,6 +1,7 @@
 'use server'
 
 import { Resend } from 'resend'
+import { writeClient } from '@/sanity/lib/client'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -13,53 +14,44 @@ export async function submitIntakeForm(
   _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const fullName = formData.get('fullName') as string
-  const jobTitle = formData.get('jobTitle') as string
-  const hotelName = formData.get('hotelName') as string
-  const numberOfRooms = formData.get('numberOfRooms') as string
-  const painPoint = formData.get('painPoint') as string
-  const automationInterest = formData.get('automationInterest') as string
-  const referralSource = formData.get('referralSource') as string
-  const message = formData.get('message') as string
+  const fullName = (formData.get('fullName') as string)?.trim()
+  const hotelName = (formData.get('hotelName') as string)?.trim()
+  const email = (formData.get('email') as string)?.trim()
+  const message = (formData.get('message') as string)?.trim()
 
-  if (!fullName || !jobTitle || !hotelName || !numberOfRooms || !painPoint || !automationInterest) {
+  if (!fullName || !hotelName || !email) {
     return { status: 'error', message: 'Please fill out all required fields.' }
   }
 
-  const painPointLabels: Record<string, string> = {
-    'slow-rfp': 'Slow RFP responses',
-    'manual-proposals': 'Manual proposals',
-    'no-linkedin': 'No LinkedIn presence',
-    'lead-followup': 'Lead follow-up',
-    'other': 'Other',
-  }
-
-  const automationLabels: Record<string, string> = {
-    'event-inquiry': 'Event Inquiry Automation',
-    'linkedin-content': 'LinkedIn Content Automation',
-    'lead-prospecting': 'Lead Prospecting Automation',
-    'proposal-generation': 'Proposal Generation Automation',
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { status: 'error', message: 'Please enter a valid email address.' }
   }
 
   try {
-    await resend.emails.send({
-      from: 'Stitch Hospitality <noreply@stitchhospitality.com>',
-      to: 'chris@stitchhospitality.com',
-      subject: `New Intake Form: ${hotelName} — ${fullName}`,
-      html: `
-        <h2>New Intake Form Submission</h2>
-        <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:600px;">
-          <tr><td><strong>Name</strong></td><td>${fullName}</td></tr>
-          <tr><td><strong>Job Title</strong></td><td>${jobTitle}</td></tr>
-          <tr><td><strong>Hotel</strong></td><td>${hotelName}</td></tr>
-          <tr><td><strong>Rooms</strong></td><td>${numberOfRooms}</td></tr>
-          <tr><td><strong>Pain Point</strong></td><td>${painPointLabels[painPoint] ?? painPoint}</td></tr>
-          <tr><td><strong>Automation Interest</strong></td><td>${automationLabels[automationInterest] ?? automationInterest}</td></tr>
-          <tr><td><strong>How they heard</strong></td><td>${referralSource || '—'}</td></tr>
-          <tr><td><strong>Message</strong></td><td>${message || '—'}</td></tr>
-        </table>
-      `,
-    })
+    await Promise.all([
+      writeClient.create({
+        _type: 'intakeLead',
+        fullName,
+        hotelName,
+        email,
+        message: message || undefined,
+        submittedAt: new Date().toISOString(),
+      }),
+      resend.emails.send({
+        from: 'Stitch Hospitality <noreply@stitchhospitality.com>',
+        to: 'chris@stitchhospitality.com',
+        subject: `New Inquiry: ${hotelName} — ${fullName}`,
+        html: `
+          <h2>New Intake Form Submission</h2>
+          <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:600px;">
+            <tr><td><strong>Name</strong></td><td>${fullName}</td></tr>
+            <tr><td><strong>Hotel</strong></td><td>${hotelName}</td></tr>
+            <tr><td><strong>Email</strong></td><td>${email}</td></tr>
+            <tr><td><strong>Message</strong></td><td>${message || '—'}</td></tr>
+          </table>
+        `,
+      }),
+    ])
 
     return { status: 'success', message: "Thanks! We'll be in touch within one business day." }
   } catch {

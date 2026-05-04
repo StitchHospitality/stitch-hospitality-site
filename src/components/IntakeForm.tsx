@@ -44,11 +44,11 @@ export default function IntakeForm() {
           </div>
         ) : (
           <form action={formAction} className="max-w-2xl mx-auto bg-white rounded-2xl border border-[#e5e3db] p-8 lg:p-12 shadow-sm">
-            {/* Full Name + Job Title */}
+            {/* Full Name + Hotel Name */}
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
                 <label htmlFor="fullName" className={labelClass}>
-                  Full Name
+                  Full Name <span className="text-[#ff6464]">*</span>
                 </label>
                 <input
                   id="fullName"
@@ -60,25 +60,8 @@ export default function IntakeForm() {
                 />
               </div>
               <div>
-                <label htmlFor="jobTitle" className={labelClass}>
-                  Job Title
-                </label>
-                <input
-                  id="jobTitle"
-                  name="jobTitle"
-                  type="text"
-                  placeholder="Director of Sales"
-                  className={inputClass}
-                  required
-                />
-              </div>
-            </div>
-
-            {/* Hotel Name + Number of Rooms */}
-            <div className="grid sm:grid-cols-2 gap-6 mb-6">
-              <div>
                 <label htmlFor="hotelName" className={labelClass}>
-                  Hotel Name
+                  Hotel Name <span className="text-[#ff6464]">*</span>
                 </label>
                 <input
                   id="hotelName"
@@ -89,72 +72,20 @@ export default function IntakeForm() {
                   required
                 />
               </div>
-              <div>
-                <label htmlFor="numberOfRooms" className={labelClass}>
-                  Number of Rooms
-                </label>
-                <input
-                  id="numberOfRooms"
-                  name="numberOfRooms"
-                  type="number"
-                  min="1"
-                  placeholder="120"
-                  className={inputClass}
-                  required
-                />
-              </div>
             </div>
 
-            {/* Biggest Pain Point */}
+            {/* Email */}
             <div className="mb-6">
-              <label htmlFor="painPoint" className={labelClass}>
-                Biggest Pain Point
-              </label>
-              <select id="painPoint" name="painPoint" className={inputClass} required defaultValue="">
-                <option value="" disabled>
-                  Select your biggest pain point…
-                </option>
-                <option value="slow-rfp">Slow RFP responses</option>
-                <option value="manual-proposals">Manual proposals</option>
-                <option value="no-linkedin">No LinkedIn presence</option>
-                <option value="lead-followup">Lead follow-up</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            {/* Which Automation */}
-            <div className="mb-6">
-              <label htmlFor="automationInterest" className={labelClass}>
-                Which automation interests you most?
-              </label>
-              <select
-                id="automationInterest"
-                name="automationInterest"
-                className={inputClass}
-                required
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Select an automation…
-                </option>
-                <option value="event-inquiry">Event Inquiry Automation</option>
-                <option value="linkedin-content">LinkedIn Content Automation</option>
-                <option value="lead-prospecting">Lead Prospecting Automation</option>
-                <option value="proposal-generation">Proposal Generation Automation</option>
-              </select>
-            </div>
-
-            {/* How did you hear */}
-            <div className="mb-6">
-              <label htmlFor="referralSource" className={labelClass}>
-                How did you hear about us?
+              <label htmlFor="email" className={labelClass}>
+                Email <span className="text-[#ff6464]">*</span>
               </label>
               <input
-                id="referralSource"
-                name="referralSource"
-                type="text"
-                placeholder="LinkedIn, referral, Google…"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="jane@thehotel.com"
                 className={inputClass}
+                required
               />
             </div>
 
@@ -168,7 +99,7 @@ export default function IntakeForm() {
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Anything else you'd like us to know before we connect…"
+                placeholder="Anything you'd like us to know before we connect…"
                 className={`${inputClass} resize-none`}
               />
             </div>
@@ -177,7 +108,6 @@ export default function IntakeForm() {
               <p className="text-sm text-red-500 mb-6 text-center">{state.message}</p>
             )}
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={pending}
