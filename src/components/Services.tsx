@@ -22,7 +22,7 @@ const FALLBACK_SERVICES = [
     title: "Proposal Generation",
     description:
       "Pull rates, room blocks, and package details from your property's Brand DNA profile to auto-populate branded proposals in minutes. Send a polished document before the client finishes reading your reply.",
-    tags: ["PMS integration", "Auto-populate", "PDF generation"],
+    tags: ["Brand DNA profile", "Auto-populate", "PDF generation"],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -32,7 +32,7 @@ const FALLBACK_SERVICES = [
   {
     title: "Lead Capture & Logging",
     description:
-      "Every inquiry is automatically parsed, scored, and logged — full contact details, event specs, dates, and budget captured without anyone touching a keyboard. CRM sync with Salesforce and Delphi / Amadeus available as a Phase 2 add-on.",
+      "Every inquiry is automatically parsed, scored, and logged — full contact details, event specs, dates, and budget captured without anyone touching a keyboard.",
     tags: ["Auto-parsing", "Lead scoring", "Instant logging"],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -61,18 +61,6 @@ const FALLBACK_SERVICES = [
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Contract & BEO Workflows",
-    description:
-      "Auto-generate contracts and Banquet Event Orders from confirmed bookings. Trigger internal approvals, get signatures, and archive everything — automatically.",
-    tags: ["DocuSign integration", "Auto-BEO generation", "Approval routing"],
-    comingSoon: true,
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
       </svg>
     ),
   },

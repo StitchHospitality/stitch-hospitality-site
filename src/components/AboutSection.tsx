@@ -34,7 +34,6 @@ export default function AboutSection() {
                 {[
                   "Event inquiry parsing and response workflows for hotel RFPs",
                   "Proposal generation workflows using hotel-specific brand, rate, meeting space, and F&B details",
-                  "LinkedIn content automation for hospitality sales visibility",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#ff6464] shrink-0" />

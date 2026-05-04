@@ -3,14 +3,14 @@ const steps = [
     number: "01",
     title: "Automation Audit",
     description:
-      "We spend 60 minutes with your sales team mapping every repetitive task — RFP handling, proposal building, CRM entry, follow-ups. You walk away with a clear picture of where hours are being lost.",
+      "We spend 60 minutes with your sales team mapping every repetitive task — RFP handling, proposal building, follow-ups. You walk away with a clear picture of where hours are being lost.",
     duration: "1-hour discovery call",
   },
   {
     number: "02",
     title: "Custom Build",
     description:
-      "We design and build your automation workflows in n8n, integrated with your existing tools — your PMS, CRM, email platform, and any other systems your team uses daily.",
+      "We design and build your automation workflows in n8n, integrated with your email platform and the existing tools your team uses daily.",
     duration: "1–2 week build sprint",
   },
   {

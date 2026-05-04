@@ -337,8 +337,6 @@ export default function HotelProposalAutomationPage() {
                   {[
                     "You need interactive proposals with e-signatures built in",
                     "Your team wants a visual proposal editor with drag-and-drop",
-                    "You need direct PMS integration for live inventory pulls",
-                    "You require a full sales CRM alongside proposal generation",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#8b9190] shrink-0" />
@@ -347,7 +345,7 @@ export default function HotelProposalAutomationPage() {
                   ))}
                 </ul>
                 <p className="text-xs text-[#8b9190] font-light mt-6">
-                  Tools like Proposales, Cvent, or Delphi may be a better fit in those cases.
+                  Dedicated proposal platforms may be a better fit in those cases.
                 </p>
               </div>
 

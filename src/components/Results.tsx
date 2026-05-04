@@ -2,7 +2,7 @@ const STATS = [
   {
     value: "4–6 hrs",
     label: "Saved per proposal",
-    description: "Average time reclaimed by automating proposal generation from PMS data.",
+    description: "Average time reclaimed by automating proposal drafts from your hotel's Brand DNA.",
   },
   {
     value: "< 5 min",

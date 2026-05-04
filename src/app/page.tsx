@@ -116,15 +116,6 @@ const jsonLd = {
                 "Uses hotel-specific brand, rate, meeting space, F&B, and visual details to support branded proposal creation for event inquiries.",
             },
           },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "LinkedIn Content Automation",
-              description:
-                "Creates hotel sales and hospitality automation content drafts with an approval step before posting.",
-            },
-          },
         ],
       },
     },

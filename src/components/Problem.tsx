@@ -12,7 +12,7 @@ const problems = [
   {
     number: "03",
     title: "Data entry errors cost you credibility",
-    body: "Manually transferring leads from email to your CRM introduces typos, missed fields, and duplicate records that erode trust with clients and management alike.",
+    body: "Manually tracking every inquiry across inboxes and spreadsheets introduces typos, missed fields, and duplicate records that erode trust with clients and management alike.",
   },
 ];
 
