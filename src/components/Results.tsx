@@ -1,11 +1,3 @@
-type SanityTestimonial = {
-  _id: string;
-  quote: string;
-  name: string;
-  title?: string;
-  property?: string;
-};
-
 const STATS = [
   {
     value: "4–6 hrs",
@@ -29,24 +21,7 @@ const STATS = [
   },
 ];
 
-const FALLBACK_TESTIMONIAL = {
-  quote:
-    "Before Stitch, our sales coordinator was spending two full days a week on proposals and CRM cleanup. Now that same coordinator focuses entirely on client relationships. The ROI was immediate.",
-  name: "Director of Sales",
-  title: undefined,
-  property: "Boutique Hotel Group, Northern California",
-};
-
-export default function Results({
-  sanityTestimonials,
-}: {
-  sanityTestimonials?: SanityTestimonial[];
-}) {
-  const testimonial =
-    sanityTestimonials && sanityTestimonials.length > 0
-      ? sanityTestimonials[0]
-      : FALLBACK_TESTIMONIAL;
-
+export default function Results() {
   return (
     <section id="results" className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -61,13 +36,13 @@ export default function Results({
             What hotel sales teams actually get back
           </h2>
           <p className="text-[#071f1b]/60 font-light max-w-xl mx-auto leading-relaxed">
-            These aren&apos;t estimates. They&apos;re the measurable outcomes
-            from automations we&apos;ve already built for hospitality teams.
+            Early workflow benchmarks show what&apos;s possible when RFP
+            parsing, proposal drafting, and lead logging are automated.
           </p>
         </div>
 
         {/* Stats grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {STATS.map((stat) => (
             <div
               key={stat.value}
@@ -84,34 +59,6 @@ export default function Results({
           ))}
         </div>
 
-        {/* Testimonial */}
-        <div className="max-w-3xl mx-auto bg-[#071f1b] rounded-3xl p-10 lg:p-14">
-          <div className="flex gap-1 mb-8">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-4 h-4 text-[#ff6464]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            ))}
-          </div>
-          <blockquote className="text-xl lg:text-2xl font-heading text-white leading-relaxed mb-8">
-            &ldquo;{testimonial.quote}&rdquo;
-          </blockquote>
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-[#ff6464]/20 border border-[#ff6464]/30 flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#ff6464]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-white font-medium text-sm">{testimonial.name}</p>
-              {(testimonial.title || testimonial.property) && (
-                <p className="text-white/40 text-sm font-light">
-                  {[testimonial.title, testimonial.property].filter(Boolean).join(" · ")}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

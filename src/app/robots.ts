@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/studio/", "/form/"],
+        disallow: ["/studio/", "/form/", "/category/", "/post-2/", "/*?amp=*"],
       },
     ],
     sitemap: "https://www.stitchhospitality.com/sitemap.xml",

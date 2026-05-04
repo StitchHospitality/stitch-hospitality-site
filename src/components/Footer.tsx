@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -34,20 +36,20 @@ export default function Footer() {
             </p>
             <ul className="space-y-3">
               {[
-                "Inquiry & RFP Triage",
-                "Proposal Generation",
-                "Lead Capture & Logging",
-                "Follow-Up Sequences",
-                "Reporting & Analytics",
-                "Contract & BEO Workflows",
+                { label: "Hotel RFP Automation", href: "/hotel-rfp-automation" },
+                { label: "Event Inquiry Parsing", href: "/event-inquiry-parsing-for-hotels" },
+                { label: "Hotel Proposal Automation", href: "/hotel-proposal-automation" },
+                { label: "Follow-Up Sequences", href: "/#services" },
+                { label: "Reporting & Analytics", href: "/#services" },
+                { label: "Contract & BEO Workflows", href: "/#services" },
               ].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#services"
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
                     className="text-sm text-white/50 hover:text-white transition-colors font-light"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -64,12 +66,12 @@ export default function Footer() {
                 { label: "Pricing", href: "/pricing" },
               ].map((item) => (
                 <li key={item.label}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-white/50 hover:text-white transition-colors font-light"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -90,15 +92,15 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#intake-form"
+                <Link
+                  href="/#intake-form"
                   className="inline-flex items-center gap-1.5 text-sm text-[#ff6464] hover:text-[#ff8080] transition-colors font-medium mt-2"
                 >
-                  Let&apos;s Build Your Automation
+                  Let&apos;s Build Your RFP Workflow
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

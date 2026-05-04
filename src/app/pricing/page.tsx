@@ -4,11 +4,27 @@ import Footer from "@/components/Footer";
 import PricingFAQ from "@/components/PricingFAQ";
 
 export const metadata: Metadata = {
-  title: "Event Inquiry Automation — $2,500 | Stitch Hospitality",
+  title: "Event Inquiry Automation for Hotels | Pricing",
   description:
-    "AI-powered event inquiry automation for hotel sales teams. Parse RFPs, generate branded proposals, and respond in minutes instead of hours. One-time $2,500 setup.",
+    "See pricing for Stitch Hospitality's hotel event inquiry automation: AI RFP parsing, clarification emails, branded proposal drafts, and lead database logging.",
   alternates: {
     canonical: "https://www.stitchhospitality.com/pricing",
+  },
+  openGraph: {
+    title: "Event Inquiry Automation for Hotels | Pricing | Stitch Hospitality",
+    description:
+      "See pricing for Stitch Hospitality's hotel event inquiry automation: AI RFP parsing, clarification emails, branded proposal drafts, and lead database logging.",
+    url: "https://www.stitchhospitality.com/pricing",
+    type: "website",
+    siteName: "Stitch Hospitality",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Event Inquiry Automation for Hotels | Pricing | Stitch Hospitality",
+    description:
+      "See pricing for Stitch Hospitality's hotel event inquiry automation: AI RFP parsing, clarification emails, branded proposal drafts, and lead database logging.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -178,9 +194,77 @@ function CheckIcon() {
   );
 }
 
+const pricingJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.stitchhospitality.com/" },
+      { "@type": "ListItem", position: 2, name: "Pricing", item: "https://www.stitchhospitality.com/pricing" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What do I need to get started?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A self-hosted n8n instance (we can help you set one up), a Gmail or Outlook account for sending, and about an hour to fill in your Brand DNA spreadsheet with your hotel's details, imagery, and rate structures.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Are there ongoing monthly costs?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The $2,500 setup fee is one-time. Your only ongoing costs are your n8n hosting (typically $20–50/month if cloud-hosted, or free if self-hosted on your own server) and AI API usage which runs about $15–30/month depending on inquiry volume.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does setup take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most hotels are live within 5–7 business days. The biggest variable is how quickly you complete your Brand DNA spreadsheet — once that's done, the technical setup takes 1–2 days.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does this replace my sales team?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. It handles the time-consuming parsing and initial proposal draft. Your team still reviews every proposal before it goes out, and handles all client relationships, negotiations, and follow-ups.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What if I need changes after setup?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You get 30 days of support included. After that, you own the workflow entirely and can modify it yourself, or reach out for additional support as needed.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I see a demo first?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. Book a free consultation and we'll walk you through a live demo using real hotel data, so you can see exactly how inquiries are parsed and proposals are generated.",
+        },
+      },
+    ],
+  },
+];
+
 export default function PricingPage() {
   return (
     <>
+      {pricingJsonLd.map((ld, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      ))}
       <Nav />
       <main>
         {/* ── Hero ── */}
@@ -201,6 +285,9 @@ export default function PricingPage() {
                 Event Inquiry Automation
               </span>
             </div>
+            <p className="text-base font-medium text-[#071f1b]/70 mb-4">
+              Event Inquiry Automation for Independent &amp; Boutique Hotels
+            </p>
             <h1 className="text-5xl lg:text-6xl text-[#071f1b] leading-[1.08] mb-6">
               Stop losing group business to slow RFP responses
             </h1>

@@ -30,17 +30,19 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Stitch Hospitality",
-    title: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+    title: "Hotel RFP Automation for Independent Hotels | Stitch Hospitality",
     description:
-      "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+      "Custom n8n workflows for hotel sales teams. Parse inbound RFPs, qualify leads, generate proposal drafts, and log every inquiry without manual data entry.",
     url: "https://www.stitchhospitality.com",
     locale: "en_US",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Stitch Hospitality" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+    title: "Hotel RFP Automation for Independent Hotels | Stitch Hospitality",
     description:
-      "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+      "Custom n8n workflows for hotel sales teams. Parse inbound RFPs, qualify leads, generate proposal drafts, and log every inquiry without manual data entry.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

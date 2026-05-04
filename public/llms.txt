@@ -1,48 +1,37 @@
 # Stitch Hospitality
 
-Stitch Hospitality builds custom n8n automation workflows for hotel sales departments.
+Stitch Hospitality builds custom hotel sales automation workflows for independent and boutique hotels, focused on RFP parsing, event inquiry automation, proposal generation, lead qualification, and sales follow-up.
 
-Website: https://www.stitchhospitality.com
+## Core Pages
 
-## Audience
+- Homepage: https://www.stitchhospitality.com/
+  Overview of Stitch Hospitality and hotel sales automation services.
 
-Independent and boutique hotels in California, typically 50–200 rooms. Primary users include Directors of Sales, Revenue Managers, General Managers, and hotel sales coordinators.
+- Event Inquiry Automation Pricing: https://www.stitchhospitality.com/pricing
+  Details on the hotel RFP/event inquiry automation workflow.
 
-## Core Focus
+- What to Expect: https://www.stitchhospitality.com/what-to-expect
+  Onboarding process, Brand DNA setup, workflow build, and go-live expectations.
 
-Hotel sales automation, hotel RFP automation, event inquiry parsing, proposal workflow automation, and hospitality sales operations.
+- Hotel RFP Automation: https://www.stitchhospitality.com/hotel-rfp-automation
+  Deep dive into hotel RFP automation workflows.
 
-## Available Workflows
+- Event Inquiry Parsing: https://www.stitchhospitality.com/event-inquiry-parsing-for-hotels
+  How AI parses inbound hotel event inquiries.
 
-- Event Inquiry Parsing & Response: parses incoming RFPs, scores inquiry completeness, and routes high-confidence and low-confidence inquiries.
-- Proposal Generation: uses hotel-specific brand, rate, meeting space, F&B, and visual details to support branded proposal creation.
-- LinkedIn Content Automation: creates hotel sales and hospitality automation content drafts with an approval step before posting.
+- Hotel Proposal Automation: https://www.stitchhospitality.com/hotel-proposal-automation
+  Automated proposal generation for hotel group sales.
 
-## Coming Soon
+## Core Topics
 
-- Lead Prospecting
-- Proposal Follow-Up Automation
+- Hotel RFP automation
+- Event inquiry parsing
+- Hotel proposal generation
+- Lead qualification for hotel sales teams
+- n8n workflows for hotels
+- Boutique and independent hotel sales automation
+- California hotel sales operations
 
-## Positioning
+## Ideal Customer
 
-Stitch Hospitality is not a generic SaaS platform. It builds custom automation workflows for hotel sales teams using tools such as n8n, OpenAI/Claude, Supabase, Google Sheets, Gmail, and proposal-generation tools.
-
-## Primary Problems Solved
-
-- Slow RFP response times
-- Manual proposal creation
-- Inconsistent proposal quality
-- Sales admin overload
-- Missed or delayed event inquiry follow-up
-- Lack of time for LinkedIn content and pipeline-building
-
-## Important Exclusions
-
-- Not a self-serve SaaS product
-- Not for enterprise hotel chains
-- Not for non-hospitality industries
-- Does not make guaranteed revenue claims
-
-## Contact
-
-Use the intake form on https://www.stitchhospitality.com to start a conversation.
+Independent and boutique hotels, especially California properties with 50–200 rooms, that receive group, meeting, event, or room block inquiries and want to reduce manual sales admin.

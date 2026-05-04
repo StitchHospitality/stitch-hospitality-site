@@ -86,12 +86,16 @@ export default function AboutSection() {
             <h3 className="text-xl text-[#071f1b] mb-3">
               Built Around Hospitality Sales Workflows
             </h3>
-            <p className="text-[#071f1b]/60 font-light leading-relaxed text-sm">
+            <p className="text-[#071f1b]/60 font-light leading-relaxed text-sm mb-4">
               Unlike generic automation consultants, Stitch Hospitality focuses
               only on hotel sales departments. The workflows are designed around
               hospitality terms and workflows such as RFPs, room blocks, meeting
               space, F&B minimums, BEO handoffs, rate sheets, and proposal
               turnaround time.
+            </p>
+            <p className="text-sm font-medium text-[#071f1b] inline-flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff6464] shrink-0" />
+              Built in n8n, so your hotel owns the workflow.
             </p>
           </div>
         </div>

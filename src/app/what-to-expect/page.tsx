@@ -4,9 +4,28 @@ import Footer from "@/components/Footer";
 import WhatToExpectFAQ from "@/components/WhatToExpectFAQ";
 
 export const metadata: Metadata = {
-  title: "What to Expect | Stitch Hospitality",
+  title: "Hotel RFP Automation Onboarding | What to Expect",
   description:
-    "Here's exactly what happens when you purchase the Event Inquiry Automation — what we build, what you provide, and how the onboarding process works.",
+    "Learn how Stitch Hospitality builds your hotel's event inquiry automation workflow, from Brand DNA setup to inbox connection, proposal generation, and go-live.",
+  alternates: {
+    canonical: "https://www.stitchhospitality.com/what-to-expect",
+  },
+  openGraph: {
+    title: "Hotel RFP Automation Onboarding | What to Expect | Stitch Hospitality",
+    description:
+      "Learn how Stitch Hospitality builds your hotel's event inquiry automation workflow, from Brand DNA setup to inbox connection, proposal generation, and go-live.",
+    url: "https://www.stitchhospitality.com/what-to-expect",
+    type: "website",
+    siteName: "Stitch Hospitality",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hotel RFP Automation Onboarding | What to Expect | Stitch Hospitality",
+    description:
+      "Learn how Stitch Hospitality builds your hotel's event inquiry automation workflow, from Brand DNA setup to inbox connection, proposal generation, and go-live.",
+    images: ["/og-image.png"],
+  },
 };
 
 const FEATURE_CARDS = [
@@ -158,9 +177,77 @@ function CheckIcon() {
   );
 }
 
+const whatToExpectJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.stitchhospitality.com/" },
+      { "@type": "ListItem", position: 2, name: "What to Expect", item: "https://www.stitchhospitality.com/what-to-expect" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do I need any technical skills?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. You fill in a spreadsheet and give us email access. We handle all the technical setup, hosting, and maintenance.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What if I need to update my rates or add a new event space?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Just let us know. Rate changes, new room types, updated photos — we handle the Brand DNA updates as part of your monthly support.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does the Brand DNA spreadsheet take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "About an hour. We provide a pre-formatted template with example data so you know exactly what goes where. We walk through it together on the kickoff call.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I see a demo before I commit?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Book a free consultation and we'll show you a live demo with real hotel data — you'll see exactly how inquiries get parsed and proposals get generated.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens if something breaks?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We monitor daily. If a workflow fails or an email doesn't send, we catch it and fix it — usually before your team even notices.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I cancel the monthly support?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, anytime. If you cancel, we transfer the workflow and credentials to you. You own everything we built — there's no lock-in.",
+        },
+      },
+    ],
+  },
+];
+
 export default function WhatToExpectPage() {
   return (
     <>
+      {whatToExpectJsonLd.map((ld, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      ))}
       <Nav />
       <main>
         {/* Hero */}
@@ -181,7 +268,7 @@ export default function WhatToExpectPage() {
               </span>
             </div>
             <h1 className="text-5xl lg:text-6xl text-[#071f1b] leading-[1.08] mb-6">
-              We handle the tech. You fill in one spreadsheet.
+              What Happens After You Buy Event Inquiry Automation
             </h1>
             <p className="text-lg text-[#071f1b]/60 font-light leading-relaxed max-w-2xl mx-auto">
               Here&apos;s exactly what happens after you purchase the Event Inquiry

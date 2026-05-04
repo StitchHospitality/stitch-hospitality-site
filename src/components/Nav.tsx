@@ -13,6 +13,12 @@ const NAV_LINKS = [
   { label: "What to Expect", href: "/what-to-expect" },
 ];
 
+const SOLUTION_LINKS = [
+  { label: "Hotel RFP Automation", href: "/hotel-rfp-automation" },
+  { label: "Event Inquiry Parsing", href: "/event-inquiry-parsing-for-hotels" },
+  { label: "Hotel Proposal Automation", href: "/hotel-proposal-automation" },
+];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,6 +82,21 @@ export default function Nav() {
               {item.label}
             </Link>
           ))}
+          <div className="mt-4 pt-4 border-t border-[#e5e3db]">
+            <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-[#8b9190] mb-2">
+              Solutions
+            </p>
+            {SOLUTION_LINKS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-sm font-medium text-[#071f1b]/70 hover:text-[#ff6464] transition-colors py-2 block"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </header>

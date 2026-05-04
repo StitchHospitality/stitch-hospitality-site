@@ -10,14 +10,14 @@ import IntakeForm from "@/components/IntakeForm";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import { client } from "@/sanity/lib/client";
-import { TESTIMONIALS_QUERY, SERVICES_QUERY } from "@/sanity/lib/queries";
+import { SERVICES_QUERY } from "@/sanity/lib/queries";
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+  title: "Hotel RFP Automation for Independent Hotels | Stitch Hospitality",
   description:
-    "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+    "Custom n8n workflows for hotel sales teams. Parse inbound RFPs, qualify leads, generate proposal drafts, and log every inquiry without manual data entry.",
   keywords: [
     "hotel sales automation",
     "hotel RFP automation",
@@ -47,7 +47,9 @@ const jsonLd = {
       name: "Stitch Hospitality",
       url: "https://www.stitchhospitality.com",
       description:
-        "Custom n8n automation workflows for hotel sales departments. Helps independent and boutique hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+        "Custom n8n automation workflows for independent and boutique hotel sales teams. RFP parsing, proposal generation, lead qualification, and sales follow-up automation.",
+      email: "chris@stitchhospitality.com",
+      sameAs: ["https://www.linkedin.com/company/stitchhospitality-com"],
       founder: {
         "@type": "Person",
         name: "Chris Suarez",
@@ -130,10 +132,7 @@ const jsonLd = {
 };
 
 export default async function Home() {
-  const [testimonials, services] = await Promise.all([
-    client.fetch(TESTIMONIALS_QUERY).catch(() => []),
-    client.fetch(SERVICES_QUERY).catch(() => []),
-  ]);
+  const services = await client.fetch(SERVICES_QUERY).catch(() => []);
 
   return (
     <>
@@ -148,7 +147,7 @@ export default async function Home() {
         <Services sanityServices={services} />
         <HowItWorks />
         <AboutSection />
-        <Results sanityTestimonials={testimonials} />
+        <Results />
         <CTA />
         <IntakeForm />
       </main>

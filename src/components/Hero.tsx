@@ -24,13 +24,14 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl lg:text-6xl xl:text-[68px] text-[#071f1b] leading-[1.08]">
-            Hotel Sales Automation for RFPs, Proposals, and Follow-Up
+            Hotel RFP Automation for Independent Hotel Sales Teams
           </h1>
 
           <p className="text-lg text-[#071f1b]/65 leading-relaxed font-light">
-            Stitch Hospitality builds custom n8n automation workflows that
-            eliminate the repetitive admin burying your sales team — so they
-            can focus on building relationships and closing deals.
+            Stitch Hospitality builds custom n8n workflows that parse event
+            inquiries, qualify the lead, draft the right response, and log
+            every detail — so your sales team can respond faster without adding
+            another platform.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -38,7 +39,7 @@ export default function Hero() {
               href="#intake-form"
               className="inline-flex items-center justify-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-7 py-4 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-[#ff6464]/25 hover:-translate-y-0.5"
             >
-              Let&apos;s Build Your Automation
+              Let&apos;s Build Your RFP Workflow
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -47,12 +48,12 @@ export default function Hero() {
               href="#how-it-works"
               className="inline-flex items-center justify-center gap-2 border border-[#071f1b]/20 text-[#071f1b] hover:border-[#071f1b]/40 hover:bg-[#071f1b]/5 font-medium px-7 py-4 rounded-full transition-all duration-200"
             >
-              See How It Works
+              See How the Workflow Works
             </a>
           </div>
 
           <p className="text-sm text-[#071f1b]/40 font-light">
-            Trusted by independent hotels &amp; management groups across California.
+            Built specifically for independent and boutique hotel sales teams in California.
           </p>
         </div>
 
