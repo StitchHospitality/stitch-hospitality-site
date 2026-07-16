@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# paid product deliverables — never commit to this public repo.
+# Source files and backups live outside git; see /deliverables/README.md.
+/deliverables/
