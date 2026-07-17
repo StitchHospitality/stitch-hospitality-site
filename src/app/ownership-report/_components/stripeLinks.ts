@@ -1,4 +1,2 @@
-// Placeholders until the Stripe Payment Links exist (launch kit Part 6, Steps 1-3).
-// Swap these for the live https://buy.stripe.com/... URLs before going live.
-export const STRIPE_LINK_PDF = "#pricing";
-export const STRIPE_LINK_FULL = "#pricing";
+export const STRIPE_LINK_PDF = "https://buy.stripe.com/aFa4gy0ZM7bn31Ca716J202";
+export const STRIPE_LINK_FULL = "https://buy.stripe.com/14A5kC23Q8fr6dO2Ez6J201";
