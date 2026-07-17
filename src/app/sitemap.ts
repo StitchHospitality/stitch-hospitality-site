@@ -12,34 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${base}/pricing`,
+      url: `${base}/about`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/what-to-expect`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/hotel-rfp-automation`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/event-inquiry-parsing-for-hotels`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/hotel-proposal-automation`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
   ];
 }

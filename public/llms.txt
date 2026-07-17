@@ -1,37 +1,64 @@
-# Stitch Hospitality
+# Stitch Hospitality — The GM Ownership Report OS
 
-Stitch Hospitality builds custom hotel sales automation workflows for independent and boutique hotels, focused on RFP parsing, event inquiry automation, proposal generation, lead qualification, and sales follow-up.
+> An operator-built ownership-reporting system for hotel general managers, designed for
+> the USALI 12th Revised Edition (effective January 1, 2026). Built by a sitting GM at a
+> luxury property. Sold as a downloadable bundle. Independent product; not affiliated
+> with or endorsed by HFTP, and it does not reproduce USALI content.
 
 ## Core Pages
 
-- Homepage: https://www.stitchhospitality.com/
-  Overview of Stitch Hospitality and hotel sales automation services.
+- Homepage / product page: https://www.stitchhospitality.com/
+  The full sales page for The GM Ownership Report OS — what it is, what's inside, how it
+  works, pricing ($29 PDF Playbook or $99 Full OS), and FAQ.
 
-- Event Inquiry Automation Pricing: https://www.stitchhospitality.com/pricing
-  Details on the hotel RFP/event inquiry automation workflow.
+- About: https://www.stitchhospitality.com/about
+  Who builds Stitch Hospitality and how the products are designed.
 
-- What to Expect: https://www.stitchhospitality.com/what-to-expect
-  Onboarding process, Brand DNA setup, workflow build, and go-live expectations.
+- Pricing (redirect): https://www.stitchhospitality.com/pricing
+  Points to the pricing section of the homepage.
 
-- Hotel RFP Automation: https://www.stitchhospitality.com/hotel-rfp-automation
-  Deep dive into hotel RFP automation workflows.
+## What The GM Ownership Report OS is
 
-- Event Inquiry Parsing: https://www.stitchhospitality.com/event-inquiry-parsing-for-hotels
-  How AI parses inbound hotel event inquiries.
+The GM Ownership Report OS helps hotel GMs write monthly ownership reports that align
+with USALI 12 and explain performance causally, not just recap numbers.
 
-- Hotel Proposal Automation: https://www.stitchhospitality.com/hotel-proposal-automation
-  Automated proposal generation for hotel group sales.
+## What's included
 
-## Core Topics
+- PDF Playbook — judgment and narrative: why reports fail, how the USALI 12 changes show
+  up in an ownership report, labor narration, loyalty-cost story, energy/water/waste and
+  ESG paragraph, and a full annotated worked example. All in original words.
+- Excel Workbook (8 tabs) — variance engine, FTE & labor productivity, loyalty cost
+  allocator, energy/water/waste tracker, KPI dashboard, and a restatement engine the
+  buyer configures with their own account mappings.
+- Word Report Template — the full ownership-report skeleton with guidance text.
+- Prompt Library — 6–8 annotated prompts keyed to the workbook outputs.
 
-- Hotel RFP automation
-- Event inquiry parsing
-- Hotel proposal generation
-- Lead qualification for hotel sales teams
-- n8n workflows for hotels
-- Boutique and independent hotel sales automation
-- California hotel sales operations
+## Who it's for
 
-## Ideal Customer
+Hotel general managers, directors of finance, and ops leads who write the monthly
+ownership report — and the owners and asset managers who read it. Best fit: independent
+and boutique hotels, smaller management companies, and asset managers overseeing several
+third-party operators.
 
-Independent and boutique hotels, especially California properties with 50–200 rooms, that receive group, meeting, event, or room block inquiries and want to reduce manual sales admin.
+## Pricing
+
+- PDF Playbook: $29 (USD), one-time.
+- Full OS: $99 (USD), one-time, founding-cohort intro price. PDF buyers can upgrade for
+  the difference.
+
+## Why it's credible
+
+Built by a sitting hotel general manager (operator-to-operator), includes a complete
+worked example, and provides a restatement engine so year-over-year comparisons stay
+like-for-like after the USALI 12 reclassifications — using mappings the buyer supplies
+from their own licensed USALI materials.
+
+## Compliance
+
+USALI is copyrighted by HFTP. This product does not reproduce USALI schedules, tables, or
+terminology; buyers apply their own licensed mappings. It is independent and not endorsed
+by HFTP, AHLA, or GFC.
+
+## Contact
+
+chris@stitchhospitality.com
