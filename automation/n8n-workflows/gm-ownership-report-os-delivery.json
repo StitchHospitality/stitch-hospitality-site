@@ -1,0 +1,234 @@
+{
+  "name": "GM Ownership Report OS — Stripe to Delivery",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "gm-ownership-report-os-stripe",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "webhook-stripe",
+      "name": "Stripe Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-1120, 0],
+      "webhookId": "gm-ownership-report-os-stripe"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifies the Stripe webhook signature using the raw request body.\n// Stripe-Signature header format: t=<timestamp>,v1=<signature>\n// Set STRIPE_WEBHOOK_SECRET as an n8n environment variable (Settings > Environment).\nconst crypto = require('crypto');\n\nconst sigHeader = $input.first().json.headers['stripe-signature'];\nconst rawBody = $input.first().json.rawBody ? $input.first().json.rawBody.toString('utf8') : null;\nconst secret = $env.STRIPE_WEBHOOK_SECRET;\n\nif (!sigHeader || !rawBody || !secret) {\n  throw new Error('Missing signature header, raw body, or STRIPE_WEBHOOK_SECRET env var.');\n}\n\nconst parts = Object.fromEntries(sigHeader.split(',').map(p => p.split('=')));\nconst timestamp = parts.t;\nconst signature = parts.v1;\n\nif (!timestamp || !signature) {\n  throw new Error('Malformed Stripe-Signature header.');\n}\n\nconst signedPayload = `${timestamp}.${rawBody}`;\nconst expected = crypto.createHmac('sha256', secret).update(signedPayload, 'utf8').digest('hex');\n\nconst expectedBuf = Buffer.from(expected, 'hex');\nconst signatureBuf = Buffer.from(signature, 'hex');\nconst valid = expectedBuf.length === signatureBuf.length && crypto.timingSafeEqual(expectedBuf, signatureBuf);\n\n// Reject requests older than 5 minutes to guard against replay.\nconst age = Math.abs(Date.now() / 1000 - Number(timestamp));\nif (!valid || age > 300) {\n  throw new Error('Stripe signature verification failed.');\n}\n\nconst event = JSON.parse(rawBody);\nreturn [{ json: event }];"
+      },
+      "id": "code-verify-signature",
+      "name": "Verify Stripe Signature",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-880, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "is-checkout-completed",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "checkout.session.completed",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-event-type",
+      "name": "Is checkout.session.completed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [-640, 0]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data.object.amount_total }}",
+                    "rightValue": 9900,
+                    "operator": { "type": "number", "operation": "equals" }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Full OS ($99)"
+            },
+            {
+              "conditions": {
+                "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data.object.amount_total }}",
+                    "rightValue": 2900,
+                    "operator": { "type": "number", "operation": "equals" }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "PDF Playbook ($29)"
+            }
+          ]
+        },
+        "options": { "fallbackOutput": "extra" }
+      },
+      "id": "switch-amount",
+      "name": "Branch by Amount",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [-400, -80]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Builds the signed download link — must match src/app/api/download/route.ts exactly:\n// HMAC-SHA256(DELIVERY_LINK_SECRET, `${product}.${expires}`), hex digest.\n// Set DELIVERY_LINK_SECRET as an n8n environment variable to the SAME value\n// that was added to Vercel (production + preview) for stitch-hospitality-site.\nconst crypto = require('crypto');\n\nconst product = 'full-os';\nconst secret = $env.DELIVERY_LINK_SECRET;\nif (!secret) throw new Error('DELIVERY_LINK_SECRET env var is not set in n8n.');\n\nconst expires = Date.now() + 7 * 24 * 60 * 60 * 1000; // 7-day link validity\nconst token = crypto.createHmac('sha256', secret).update(`${product}.${expires}`).digest('hex');\nconst downloadUrl = `https://www.stitchhospitality.com/api/download?product=${product}&expires=${expires}&token=${token}`;\n\nconst event = $input.first().json;\nreturn [{\n  json: {\n    productName: 'The GM Ownership Report OS — Full OS',\n    customerEmail: event.data.object.customer_details?.email,\n    downloadUrl,\n  },\n}];"
+      },
+      "id": "code-sign-fullos",
+      "name": "Sign Full OS Link",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-160, -180]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Same signing pattern as the Full OS branch, product = 'playbook'.\nconst crypto = require('crypto');\n\nconst product = 'playbook';\nconst secret = $env.DELIVERY_LINK_SECRET;\nif (!secret) throw new Error('DELIVERY_LINK_SECRET env var is not set in n8n.');\n\nconst expires = Date.now() + 7 * 24 * 60 * 60 * 1000;\nconst token = crypto.createHmac('sha256', secret).update(`${product}.${expires}`).digest('hex');\nconst downloadUrl = `https://www.stitchhospitality.com/api/download?product=${product}&expires=${expires}&token=${token}`;\n\nconst event = $input.first().json;\nreturn [{\n  json: {\n    productName: 'The GM Ownership Report OS — PDF Playbook',\n    customerEmail: event.data.object.customer_details?.email,\n    downloadUrl,\n  },\n}];"
+      },
+      "id": "code-sign-playbook",
+      "name": "Sign Playbook Link",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-160, 20]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.resend.com/emails",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {\n  \"from\": \"Stitch Hospitality <chris@stitchhospitality.com>\",\n  \"to\": [ $json.customerEmail ],\n  \"subject\": $json.productName + \" — your download link\",\n  \"html\": \"<p>Thanks for buying \" + $json.productName + \".</p><p><a href='\" + $json.downloadUrl + \"'>Click here to download your files</a> (link valid for 7 days).</p><p>Questions or need the link resent? Just reply to this email.</p><p>— Chris</p>\"\n} }}"
+      },
+      "id": "http-send-email",
+      "name": "Send Delivery Email (Resend)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [80, -80],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_RESEND_CREDENTIAL_ID",
+          "name": "Resend API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.resend.com/emails",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {\n  \"from\": \"Stitch Hospitality Alerts <chris@stitchhospitality.com>\",\n  \"to\": [ \"chris@stitchhospitality.com\" ],\n  \"subject\": \"GM Ownership Report OS — unrecognized purchase amount\",\n  \"html\": \"<p>A checkout.session.completed event came through with amount_total = \" + $json.data.object.amount_total + \" (expected 2900 or 9900). Customer: \" + ($json.data.object.customer_details?.email || 'unknown') + \". No delivery email was sent — check Stripe and fulfill manually.</p>\"\n} }}"
+      },
+      "id": "http-alert-unexpected",
+      "name": "Alert: Unexpected Amount",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-160, 220],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_RESEND_CREDENTIAL_ID",
+          "name": "Resend API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "ok",
+        "options": { "responseCode": 200 }
+      },
+      "id": "respond-ok",
+      "name": "Respond 200 to Stripe",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [340, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "ignored",
+        "options": { "responseCode": 200 }
+      },
+      "id": "respond-ignored",
+      "name": "Respond 200 (Ignored Event)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [-400, 200]
+    }
+  ],
+  "connections": {
+    "Stripe Webhook": {
+      "main": [[{ "node": "Verify Stripe Signature", "type": "main", "index": 0 }]]
+    },
+    "Verify Stripe Signature": {
+      "main": [[{ "node": "Is checkout.session.completed?", "type": "main", "index": 0 }]]
+    },
+    "Is checkout.session.completed?": {
+      "main": [
+        [{ "node": "Branch by Amount", "type": "main", "index": 0 }],
+        [{ "node": "Respond 200 (Ignored Event)", "type": "main", "index": 0 }]
+      ]
+    },
+    "Branch by Amount": {
+      "main": [
+        [{ "node": "Sign Full OS Link", "type": "main", "index": 0 }],
+        [{ "node": "Sign Playbook Link", "type": "main", "index": 0 }],
+        [{ "node": "Alert: Unexpected Amount", "type": "main", "index": 0 }]
+      ]
+    },
+    "Sign Full OS Link": {
+      "main": [[{ "node": "Send Delivery Email (Resend)", "type": "main", "index": 0 }]]
+    },
+    "Sign Playbook Link": {
+      "main": [[{ "node": "Send Delivery Email (Resend)", "type": "main", "index": 0 }]]
+    },
+    "Send Delivery Email (Resend)": {
+      "main": [[{ "node": "Respond 200 to Stripe", "type": "main", "index": 0 }]]
+    },
+    "Alert: Unexpected Amount": {
+      "main": [[{ "node": "Respond 200 to Stripe", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
