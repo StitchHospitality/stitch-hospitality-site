@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const NAV_LINKS = [
+  { label: "GM Ownership Report OS", href: "/ownership-report" },
   { label: "Services", href: "/#services" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Results", href: "/#results" },
