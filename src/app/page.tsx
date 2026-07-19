@@ -67,6 +67,7 @@ const productJsonLd = {
   description:
     "An operator-built ownership-reporting system designed for the USALI 12th Revised Edition (effective January 1, 2026). Includes a PDF playbook, an 8-tab Excel workbook with a restatement engine the buyer configures with their own account mappings, a Word report template, and a prompt library. Built by a sitting hotel general manager. Independent product; not affiliated with or endorsed by HFTP.",
   category: "Hotel financial reporting / hospitality operations",
+  image: `${PAGE_URL}opengraph-image`,
   author: { "@type": "Person", name: "Chris Suarez", jobTitle: "Hotel General Manager" },
   audience: {
     "@type": "Audience",
