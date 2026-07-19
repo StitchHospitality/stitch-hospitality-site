@@ -1,4 +1,6 @@
-const STEPS = [
+const LINK_CLASS = "text-[#ff6464] hover:text-[#ff8080] underline decoration-1 underline-offset-4";
+
+const STEPS: { number: string; title: string; description: React.ReactNode }[] = [
   {
     number: "01",
     title: "Download instantly",
@@ -8,8 +10,16 @@ const STEPS = [
   {
     number: "02",
     title: "Restate and reconcile in the workbook",
-    description:
-      "Set your property inputs and mappings once. Enter your month. The restatement engine puts last year on a like-for-like basis, the variance engine flags what matters, and the workbook drafts your first-pass narrative.",
+    description: (
+      <>
+        Set your property inputs and mappings once. Enter your month. The{" "}
+        <a href="/resources/usali-12-restatement-guide" className={LINK_CLASS}>
+          restatement engine
+        </a>{" "}
+        puts last year on a like-for-like basis, the variance engine flags what
+        matters, and the workbook drafts your first-pass narrative.
+      </>
+    ),
   },
   {
     number: "03",

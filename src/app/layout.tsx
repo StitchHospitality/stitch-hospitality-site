@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Belleza, Work_Sans } from "next/font/google";
+import JsonLd from "@/components/seo/JsonLd";
+import { organizationSchema } from "@/components/seo/schemas";
 import "./globals.css";
 
 const belleza = Belleza({
@@ -47,7 +49,10 @@ export default function RootLayout({
       lang="en"
       className={`${belleza.variable} ${workSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <JsonLd data={organizationSchema} />
+        {children}
+      </body>
     </html>
   );
 }

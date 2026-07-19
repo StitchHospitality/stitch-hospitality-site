@@ -1,4 +1,4 @@
-import { STRIPE_LINK_FULL } from "./stripeLinks";
+import { STRIPE_LINK_FULL, withUtm } from "./stripeLinks";
 
 export default function Hero() {
   return (
@@ -37,7 +37,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href={STRIPE_LINK_FULL}
+              href={withUtm(STRIPE_LINK_FULL, "hero")}
               className="inline-flex items-center justify-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-7 py-4 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-[#ff6464]/25 hover:-translate-y-0.5"
             >
               Get the Full OS — $99

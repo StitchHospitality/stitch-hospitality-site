@@ -1,4 +1,4 @@
-import { STRIPE_LINK_PDF, STRIPE_LINK_FULL } from "./stripeLinks";
+import { STRIPE_LINK_PDF, STRIPE_LINK_FULL, withUtm } from "./stripeLinks";
 
 export default function Pricing() {
   return (
@@ -39,7 +39,7 @@ export default function Pricing() {
               ))}
             </ul>
             <a
-              href={STRIPE_LINK_PDF}
+              href={withUtm(STRIPE_LINK_PDF, "pricing_pdf")}
               className="mt-auto inline-flex items-center justify-center gap-2 border border-[#071f1b]/20 text-[#071f1b] hover:border-[#071f1b]/40 hover:bg-[#071f1b]/5 font-medium px-7 py-4 rounded-full transition-all duration-200"
             >
               Get the Playbook — $29
@@ -77,7 +77,7 @@ export default function Pricing() {
               ))}
             </ul>
             <a
-              href={STRIPE_LINK_FULL}
+              href={withUtm(STRIPE_LINK_FULL, "pricing_full")}
               className="relative mt-auto inline-flex items-center justify-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-7 py-4 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-[#ff6464]/25"
             >
               Get the Full OS — $99

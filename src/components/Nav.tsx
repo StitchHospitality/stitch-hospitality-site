@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { STRIPE_LINK_FULL } from "./ownership-report/stripeLinks";
+import { STRIPE_LINK_FULL, withUtm } from "./ownership-report/stripeLinks";
 
 const LINKS = [
   { label: "What's Inside", href: "/#whats-inside" },
@@ -53,7 +53,7 @@ export default function Nav() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href={STRIPE_LINK_FULL}
+            href={withUtm(STRIPE_LINK_FULL, "nav")}
             className="inline-flex items-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#ff6464]/25"
           >
             Get the Full OS — $99
@@ -90,7 +90,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href={STRIPE_LINK_FULL}
+            href={withUtm(STRIPE_LINK_FULL, "nav_mobile")}
             onClick={() => setMenuOpen(false)}
             className="mt-2 inline-flex justify-center bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-5 py-3 rounded-full transition-colors"
           >

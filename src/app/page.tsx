@@ -12,31 +12,18 @@ import Pricing from "@/components/ownership-report/Pricing";
 import FAQ from "@/components/ownership-report/FAQ";
 import FinalCTA from "@/components/ownership-report/FinalCTA";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import { organizationRef } from "@/components/seo/schemas";
+import { STRIPE_LINK_PDF, STRIPE_LINK_FULL, withUtm } from "@/components/ownership-report/stripeLinks";
 
 const PAGE_URL = "https://www.stitchhospitality.com/";
+const HOMEPAGE_DESCRIPTION =
+  "An operator-built ownership-reporting system designed for USALI 12th Revised Edition (effective Jan 1, 2026). PDF playbook, 8-tab Excel workbook with a restatement engine, Word template, and prompt library. Built by a sitting GM. From $29. Independent — not affiliated with HFTP.";
 
 export const metadata: Metadata = {
-  title: "The GM Ownership Report OS — USALI 12 Ownership Reports, by a Sitting GM",
-  description:
-    "An operator-built ownership-reporting system designed for USALI 12th Revised Edition (effective Jan 1, 2026). PDF playbook, 8-tab Excel workbook with a restatement engine, Word template, and prompt library. Built by a sitting GM. From $29. Independent — not affiliated with HFTP.",
+  title: "USALI 12 Ownership Report OS — Playbook + Workbook by a GM",
+  description: HOMEPAGE_DESCRIPTION,
   authors: [{ name: "Chris Suarez" }],
-  keywords: [
-    "USALI 12",
-    "USALI 12th revised edition",
-    "hotel ownership report",
-    "GM ownership report",
-    "hotel owner reporting",
-    "USALI restatement",
-    "hotel account reclassification",
-    "hotel labor productivity reporting",
-    "hotel variance analysis",
-    "RevPAR index RGI MPI ARI",
-    "hotel P&L narrative",
-    "energy water waste reporting",
-    "hotel asset management report",
-    "monthly hotel ownership report template",
-    "hotel owner reporting toolkit",
-  ],
   robots: { index: true, follow: true },
   alternates: { canonical: PAGE_URL },
   openGraph: {
@@ -64,33 +51,43 @@ const productJsonLd = {
   "@type": "Product",
   name: "The GM Ownership Report OS",
   brand: { "@type": "Brand", name: "Stitch Hospitality" },
-  description:
-    "An operator-built ownership-reporting system designed for the USALI 12th Revised Edition (effective January 1, 2026). Includes a PDF playbook, an 8-tab Excel workbook with a restatement engine the buyer configures with their own account mappings, a Word report template, and a prompt library. Built by a sitting hotel general manager. Independent product; not affiliated with or endorsed by HFTP.",
+  description: HOMEPAGE_DESCRIPTION,
   category: "Hotel financial reporting / hospitality operations",
   image: `${PAGE_URL}opengraph-image`,
+  // Person credit for the actual author (Chris Suarez writes the product) is
+  // kept distinct from the Organization publisher — conflating the two would
+  // lose an accurate, already-verified distinction.
   author: { "@type": "Person", name: "Chris Suarez", jobTitle: "Hotel General Manager" },
+  publisher: organizationRef,
   audience: {
     "@type": "Audience",
     audienceType: "Hotel general managers, directors of finance, hotel owners and asset managers",
   },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "PDF Playbook",
-      price: "29.00",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: `${PAGE_URL}#pricing`,
-    },
-    {
-      "@type": "Offer",
-      name: "The Full OS",
-      price: "99.00",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: `${PAGE_URL}#pricing`,
-    },
-  ],
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "29",
+    highPrice: "99",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "PDF Playbook",
+        price: "29.00",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: withUtm(STRIPE_LINK_PDF, "schema_pdf"),
+      },
+      {
+        "@type": "Offer",
+        name: "The Full OS",
+        price: "99.00",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: withUtm(STRIPE_LINK_FULL, "schema_full"),
+      },
+    ],
+  },
 };
 
 // Mirrors src/components/ownership-report/FAQ.tsx exactly — Google penalizes
@@ -150,32 +147,11 @@ const faqJsonLd = {
   ],
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Stitch Hospitality",
-  url: "https://www.stitchhospitality.com",
-  logo: "https://www.stitchhospitality.com/logo.png",
-  description:
-    "Stitch Hospitality builds The GM Ownership Report OS — an operator-built playbook, workbook, Word template, and prompt library that helps hotel general managers write ownership reports designed for the USALI 12th Revised Edition.",
-  sameAs: ["https://www.linkedin.com/company/stitchhospitality-com"],
-};
-
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLd data={productJsonLd} />
+      <JsonLd data={faqJsonLd} />
       <Nav />
       <main>
         <Hero />

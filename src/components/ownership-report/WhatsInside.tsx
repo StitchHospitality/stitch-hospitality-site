@@ -70,14 +70,24 @@ export default function WhatsInside() {
               makes it usable everywhere the report touches.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["Restatement engine", "Configure once, reuse monthly", "Audit trail"].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/70"
-                >
-                  {tag}
-                </span>
-              ))}
+              {["Restatement engine", "Configure once, reuse monthly", "Audit trail"].map((tag) =>
+                tag === "Restatement engine" ? (
+                  <a
+                    key={tag}
+                    href="/resources/usali-12-restatement-guide"
+                    className="text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-colors"
+                  >
+                    {tag}
+                  </a>
+                ) : (
+                  <span
+                    key={tag}
+                    className="text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/70"
+                  >
+                    {tag}
+                  </span>
+                )
+              )}
             </div>
           </div>
         </div>

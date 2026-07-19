@@ -1,4 +1,4 @@
-import { STRIPE_LINK_PDF, STRIPE_LINK_FULL } from "./stripeLinks";
+import { STRIPE_LINK_PDF, STRIPE_LINK_FULL, withUtm } from "./stripeLinks";
 
 export default function FinalCTA() {
   return (
@@ -25,7 +25,7 @@ export default function FinalCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <a
-            href={STRIPE_LINK_FULL}
+            href={withUtm(STRIPE_LINK_FULL, "final_cta_full")}
             className="inline-flex items-center gap-2 bg-white text-[#ff6464] hover:bg-[#fff4f4] font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-[#071f1b]/20 hover:-translate-y-0.5"
           >
             Get the Full OS — $99
@@ -34,7 +34,7 @@ export default function FinalCTA() {
             </svg>
           </a>
           <a
-            href={STRIPE_LINK_PDF}
+            href={withUtm(STRIPE_LINK_PDF, "final_cta_pdf")}
             className="inline-flex items-center gap-2 border border-white/40 text-white hover:bg-white/10 font-medium px-8 py-4 rounded-full transition-all duration-200"
           >
             Start with the PDF — $29

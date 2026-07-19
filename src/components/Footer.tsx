@@ -1,4 +1,4 @@
-import { STRIPE_LINK_PDF, STRIPE_LINK_FULL } from "./ownership-report/stripeLinks";
+import { STRIPE_LINK_PDF, STRIPE_LINK_FULL, withUtm } from "./ownership-report/stripeLinks";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -23,12 +23,12 @@ export default function Footer() {
             </p>
             <ul className="space-y-3">
               <li>
-                <a href={STRIPE_LINK_FULL} className="text-sm text-white/50 hover:text-white transition-colors font-light">
+                <a href={withUtm(STRIPE_LINK_FULL, "footer")} className="text-sm text-white/50 hover:text-white transition-colors font-light">
                   The Full OS — $99
                 </a>
               </li>
               <li>
-                <a href={STRIPE_LINK_PDF} className="text-sm text-white/50 hover:text-white transition-colors font-light">
+                <a href={withUtm(STRIPE_LINK_PDF, "footer")} className="text-sm text-white/50 hover:text-white transition-colors font-light">
                   PDF Playbook — $29
                 </a>
               </li>
@@ -61,7 +61,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#pricing" className="inline-flex items-center gap-1.5 text-sm text-[#ff6464] hover:text-[#ff8080] transition-colors font-medium mt-2">
+                <a href="/terms" className="inline-flex items-center gap-1.5 text-sm text-[#ff6464] hover:text-[#ff8080] transition-colors font-medium mt-2">
                   Terms &amp; Refunds
                 </a>
               </li>

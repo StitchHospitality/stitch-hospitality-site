@@ -1,4 +1,6 @@
-const PROBLEMS = [
+const LINK_CLASS = "text-[#ff6464] hover:text-[#e54d4d] underline decoration-1 underline-offset-4";
+
+const PROBLEMS: { number: string; title: string; body: React.ReactNode }[] = [
   {
     number: "01",
     title: "The numbers recap gets you managed, not trusted",
@@ -12,7 +14,19 @@ const PROBLEMS = [
   {
     number: "03",
     title: "Labor is under a brighter light",
-    body: "The new standard pushes far more labor detail into ownership reporting — productivity per occupied room, compensation by department, management vs. non-management. \"Payroll was up 6%\" no longer survives the call. You need the variance decomposition — wage inflation vs. structural inefficiency — and you need it before the asset manager asks.",
+    body: (
+      <>
+        The new standard pushes far more{" "}
+        <a href="/resources/labor-productivity-usali-12" className={LINK_CLASS}>
+          labor detail
+        </a>{" "}
+        into ownership reporting — productivity per occupied room, compensation by
+        department, management vs. non-management. &quot;Payroll was up 6%&quot; no
+        longer survives the call. You need the variance decomposition — wage
+        inflation vs. structural inefficiency — and you need it before the asset
+        manager asks.
+      </>
+    ),
   },
 ];
 

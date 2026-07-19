@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import { organizationRef } from "@/components/seo/schemas";
+
+const ABOUT_URL = "https://www.stitchhospitality.com/about";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Chris Suarez",
+  jobTitle: "General Manager",
+  worksFor: organizationRef,
+  description:
+    "General manager at a luxury hotel property. Builds The GM Ownership Report OS from the operator's side of the ownership table — the system he built for his own property, made available as a product.",
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.stitchhospitality.com/" },
+    { "@type": "ListItem", position: 2, name: "About", item: ABOUT_URL },
+  ],
+};
 
 export const metadata: Metadata = {
-  title: "About — Stitch Hospitality",
+  title: "About",
   description:
     "Stitch Hospitality builds operator-authored tools for hotel leadership. The GM Ownership Report OS is written by a sitting general manager at a luxury property, from the operator's side of the ownership table.",
   alternates: {
@@ -28,13 +51,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <Nav />
       <main className="bg-[#fafaf7]">
         <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             <div className="inline-flex items-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#ff6464]" />
-              <span className="text-xs font-medium tracking-[0.18em] uppercase text-[#8b9190]">
+              <span role="doc-subtitle" className="text-xs font-medium tracking-[0.18em] uppercase text-[#8b9190]">
                 About
               </span>
             </div>
