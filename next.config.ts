@@ -22,6 +22,8 @@ const nextConfig: NextConfig = {
       { source: "/form/:path*", destination: "/", permanent: true },
       // The prior standalone OS page is now the homepage.
       { source: "/ownership-report", destination: "/", permanent: true },
+      // Retired Event Inquiry Automation pricing page — pricing now lives on the homepage.
+      { source: "/pricing", destination: "/", permanent: true },
     ];
   },
 };
