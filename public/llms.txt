@@ -1,63 +1,29 @@
-# Stitch Hospitality — The GM Ownership Report OS
+# Stitch Hospitality
 
-> An operator-built ownership-reporting system for hotel general managers, designed for
-> the USALI 12th Revised Edition (effective January 1, 2026). Built by a sitting GM at a
-> luxury property. Sold as a downloadable bundle. Independent product; not affiliated
-> with or endorsed by HFTP, and it does not reproduce USALI content.
+> Stitch Hospitality builds The GM Ownership Report OS — an operator-built playbook, workbook, Word template, and prompt library that helps hotel general managers write ownership reports designed for the USALI 12th Revised Edition, effective January 1, 2026.
 
-## Core Pages
+Built by a sitting hotel general manager who writes this report every month, not a software vendor. The system helps GMs, directors of finance, and ops leads explain performance causally instead of just restating numbers, reconcile year-over-year comparisons after USALI 12's account reclassifications, and pre-empt the questions an owner or asset manager will ask on the monthly call.
 
-- Homepage / product page: https://www.stitchhospitality.com/
-  The full sales page for The GM Ownership Report OS — what it is, what's inside, how it
-  works, pricing ($29 PDF Playbook or $99 Full OS), and FAQ.
+## Product
 
-- About: https://www.stitchhospitality.com/about
-  Who builds Stitch Hospitality and how the products are designed.
+- [The GM Ownership Report OS](https://www.stitchhospitality.com/#pricing) — $29 for the PDF Playbook alone, $99 for the Full OS (Playbook + 8-tab Excel Workbook + Word Report Template + Prompt Library).
 
-- Pricing (redirect): https://www.stitchhospitality.com/pricing
-  Points to the pricing section of the homepage.
+## About
 
-## What The GM Ownership Report OS is
+- [About Stitch Hospitality](https://www.stitchhospitality.com/about)
 
-The GM Ownership Report OS helps hotel GMs write monthly ownership reports that align
-with USALI 12 and explain performance causally, not just recap numbers.
+## FAQ
 
-## What's included
+- **Is this designed for USALI 12th Revised Edition?** Yes — it's built around the 12th Edition's changes: account reclassifications, expanded labor detail, energy/water/waste reporting, and loyalty-cost treatment. It doesn't reproduce the standard itself; buyers apply their own licensed USALI mappings.
+- **I'm not an accountant. Can I use this?** Yes. The playbook is written by a GM for GMs — judgment and narrative, not bookkeeping. The workbook does the calculations from numbers the buyer enters.
+- **What's included?** The Full OS ($99) is a PDF playbook, an 8-tab Excel workbook, a Word report template, and a prompt library. The $29 tier is the PDF playbook and worked example only.
+- **Do I need any subscription or software?** No. Buyers need Excel (or Sheets/Numbers) and Word. Files are owned outright — no subscription, no lock-in.
+- **What's the licensing?** A non-transferable license to use the files internally for a single property — not for redistribution, resale, or multi-property use. Portfolio/management-company licensing available by contacting chris@stitchhospitality.com.
+- **What if it's not useful?** 14-day refund, one per customer, void once files have been used in a client-facing or portfolio engagement.
 
-- PDF Playbook — judgment and narrative: why reports fail, how the USALI 12 changes show
-  up in an ownership report, labor narration, loyalty-cost story, energy/water/waste and
-  ESG paragraph, and a full annotated worked example. All in original words.
-- Excel Workbook (8 tabs) — variance engine, FTE & labor productivity, loyalty cost
-  allocator, energy/water/waste tracker, KPI dashboard, and a restatement engine the
-  buyer configures with their own account mappings.
-- Word Report Template — the full ownership-report skeleton with guidance text.
-- Prompt Library — 6–8 annotated prompts keyed to the workbook outputs.
+## Compliance note
 
-## Who it's for
-
-Hotel general managers, directors of finance, and ops leads who write the monthly
-ownership report — and the owners and asset managers who read it. Best fit: independent
-and boutique hotels, smaller management companies, and asset managers overseeing several
-third-party operators.
-
-## Pricing
-
-- PDF Playbook: $29 (USD), one-time.
-- Full OS: $99 (USD), one-time, founding-cohort intro price. PDF buyers can upgrade for
-  the difference.
-
-## Why it's credible
-
-Built by a sitting hotel general manager (operator-to-operator), includes a complete
-worked example, and provides a restatement engine so year-over-year comparisons stay
-like-for-like after the USALI 12 reclassifications — using mappings the buyer supplies
-from their own licensed USALI materials.
-
-## Compliance
-
-USALI is copyrighted by HFTP. This product does not reproduce USALI schedules, tables, or
-terminology; buyers apply their own licensed mappings. It is independent and not endorsed
-by HFTP, AHLA, or GFC.
+USALI™ is a trademark of, and is copyrighted by, the Hospitality Financial and Technology Professionals (HFTP). The GM Ownership Report OS is an independent product, not affiliated with, authorized by, or endorsed by HFTP, AHLA, or GFC, and does not reproduce or distribute USALI content.
 
 ## Contact
 
