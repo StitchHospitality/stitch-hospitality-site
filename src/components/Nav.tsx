@@ -1,23 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { STRIPE_LINK_FULL } from "./ownership-report/stripeLinks";
 
-const NAV_LINKS = [
-  { label: "GM Ownership Report OS", href: "/ownership-report" },
-  { label: "Services", href: "/#services" },
+const LINKS = [
+  { label: "What's Inside", href: "/#whats-inside" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Results", href: "/#results" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "FAQ", href: "/#faq" },
   { label: "About", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "What to Expect", href: "/what-to-expect" },
-];
-
-const SOLUTION_LINKS = [
-  { label: "Hotel RFP Automation", href: "/hotel-rfp-automation" },
-  { label: "Event Inquiry Parsing", href: "/event-inquiry-parsing-for-hotels" },
-  { label: "Hotel Proposal Automation", href: "/hotel-proposal-automation" },
 ];
 
 export default function Nav() {
@@ -39,24 +30,40 @@ export default function Nav() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center group">
-          <Image
-            src="/logo.png"
-            alt="Stitch Hospitality"
-            width={120}
-            height={62}
-            priority
-            className="h-12 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-200"
-          />
-        </Link>
+        <a href="/" className="flex flex-col group">
+          <span className="text-[13px] font-heading tracking-[0.22em] uppercase text-[#071f1b] group-hover:text-[#ff6464] transition-colors">
+            Stitch Hospitality
+          </span>
+          <span className="text-[10px] tracking-[0.15em] uppercase text-[#8b9190]">
+            GM Ownership Report OS
+          </span>
+        </a>
 
-        {/* Hamburger */}
+        <div className="hidden md:flex items-center gap-8">
+          {LINKS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-[#071f1b]/70 hover:text-[#071f1b] transition-colors tracking-wide"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href={STRIPE_LINK_FULL}
+            className="inline-flex items-center gap-2 bg-[#ff6464] hover:bg-[#e54d4d] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#ff6464]/25"
+          >
+            Get the Full OS — $99
+          </a>
+        </div>
+
         <button
-          className="flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          aria-expanded={menuOpen}
         >
           <span
             className={`block w-5 h-0.5 bg-[#071f1b] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
@@ -70,34 +77,25 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Dropdown menu */}
       {menuOpen && (
-        <div className="bg-[#fafaf7] border-t border-[#e5e3db] px-6 py-6 flex flex-col gap-1">
-          {NAV_LINKS.map((item) => (
-            <Link
+        <div className="md:hidden bg-[#fafaf7] border-t border-[#e5e3db] px-6 py-6 flex flex-col gap-4">
+          {LINKS.map((item) => (
+            <a
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="text-base font-medium text-[#071f1b] hover:text-[#ff6464] transition-colors py-2"
+              className="text-base font-medium text-[#071f1b] hover:text-[#ff6464] transition-colors py-1"
             >
               {item.label}
-            </Link>
+            </a>
           ))}
-          <div className="mt-4 pt-4 border-t border-[#e5e3db]">
-            <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-[#8b9190] mb-2">
-              Solutions
-            </p>
-            {SOLUTION_LINKS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium text-[#071f1b]/70 hover:text-[#ff6464] transition-colors py-2 block"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          <a
+            href={STRIPE_LINK_FULL}
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 inline-flex justify-center bg-[#ff6464] hover:bg-[#e54d4d] text-white font-medium px-5 py-3 rounded-full transition-colors"
+          >
+            Get the Full OS — $99
+          </a>
         </div>
       )}
     </header>

@@ -20,30 +20,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.stitchhospitality.com"),
   title: {
     template: "%s | Stitch Hospitality",
-    default: "Stitch Hospitality | Hotel Sales Automation for RFPs & Proposals",
+    default: "Stitch Hospitality — The GM Ownership Report OS",
   },
   description:
-    "Custom n8n automation workflows for hotel sales teams. Stitch Hospitality helps boutique and independent hotels respond to RFPs faster, streamline proposals, and reduce manual sales admin.",
+    "An operator-built ownership-reporting system for hotel general managers, designed for USALI 12th Revised Edition. Playbook, workbook, template, and prompt library — built by a sitting GM.",
   authors: [{ name: "Chris Suarez", url: "https://www.stitchhospitality.com" }],
   creator: "Chris Suarez",
   publisher: "Stitch Hospitality",
-  openGraph: {
-    type: "website",
-    siteName: "Stitch Hospitality",
-    title: "Hotel RFP Automation for Independent Hotels | Stitch Hospitality",
-    description:
-      "Custom n8n workflows for hotel sales teams. Parse inbound RFPs, qualify leads, generate proposal drafts, and log every inquiry without manual data entry.",
-    url: "https://www.stitchhospitality.com",
-    locale: "en_US",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Stitch Hospitality" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hotel RFP Automation for Independent Hotels | Stitch Hospitality",
-    description:
-      "Custom n8n workflows for hotel sales teams. Parse inbound RFPs, qualify leads, generate proposal drafts, and log every inquiry without manual data entry.",
-    images: ["/og-image.png"],
-  },
   robots: {
     index: true,
     follow: true,
