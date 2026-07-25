@@ -4,9 +4,20 @@
 
 Built by a sitting hotel general manager who writes this report every month, not a software vendor. The system helps GMs, directors of finance, and ops leads explain performance causally instead of just restating numbers, reconcile year-over-year comparisons after USALI 12's account reclassifications, and pre-empt the questions an owner or asset manager will ask on the monthly call.
 
-## Product
+## Products
 
-- [The GM Ownership Report OS](https://www.stitchhospitality.com/#pricing) — $29 for the PDF Playbook alone, $99 for the Full OS (Playbook + 8-tab Excel Workbook + Word Report Template + Prompt Library).
+- [The GM Ownership Report OS](https://www.stitchhospitality.com/#pricing) — $29 for the PDF Playbook alone, $99 for the Full OS (Playbook + 8-tab Excel Workbook + Word Report Template + Prompt Library). Available now.
+- [HotelComply](https://hotelcomply.com) — CCPA/CPRA compliance for California hotel portfolio operators: Records of Processing, vendor DPA tracking, and DSAR workflow management. Operated as Stitch Hospitality, LLC dba HotelComply, on a separate site.
+- [All products](https://www.stitchhospitality.com/products) — including tools still in development, labeled as such.
+
+## Resources
+
+Operator field guides on USALI 12th Revised Edition reporting. Written in original words; they reference the standard but do not reproduce it.
+
+- [What Changed in USALI 12th Revised Edition](https://www.stitchhospitality.com/resources/usali-12-changes-summary)
+- [How to Restate Prior-Year Financials for Like-for-Like Comparisons](https://www.stitchhospitality.com/resources/usali-12-restatement-guide)
+- [Writing the Ownership Report Narrative Owners Actually Read](https://www.stitchhospitality.com/resources/ownership-report-narrative)
+- [USALI 12 Labor Reporting: Productivity Per Occupied Room](https://www.stitchhospitality.com/resources/labor-productivity-usali-12)
 
 ## About
 

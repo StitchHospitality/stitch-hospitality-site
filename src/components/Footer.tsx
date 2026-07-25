@@ -51,6 +51,11 @@ export default function Footer() {
             </p>
             <ul className="space-y-3">
               <li>
+                <a href="/products" className="text-sm text-white/50 hover:text-white transition-colors font-light">
+                  Products
+                </a>
+              </li>
+              <li>
                 <a href="/about" className="text-sm text-white/50 hover:text-white transition-colors font-light">
                   About
                 </a>
